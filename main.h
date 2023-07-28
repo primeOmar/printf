@@ -1,26 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
-#include <stdio.h>
 #include <unistd.h>
-<<<<<<< HEAD
-#include <stdlib.h>
-
-int _printf(const char *format, ...);
-int (*check_specifier(const char*))(va_list);
-
-typedef struct func
-{
-	char *t;
-	int (*f)(valist);
-} func_t;
-int print_char(va_list);
-int print_str(va_list);
-int print_int(va_list);
-int print_cent(va_list);
-int print_dec(va_list);
-=======
-
+#include <stdio.h>
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
@@ -57,10 +39,8 @@ struct fmt
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
-
-/****************** FUNCTIONS ******************/
+int handle_print(const char *fmt, int *i,
 
 /* Funtions to print chars and strings */
 int print_char(va_list types, char buffer[],
@@ -70,6 +50,7 @@ int print_string(va_list types, char buffer[],
 int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
+/* Functions to print numbers */
 int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_binary(va_list types, char buffer[],
@@ -118,17 +99,15 @@ int write_num(int ind, char bff[], int flags, int width, int precision,
 int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start);
 
-int write_unsgnd(int is_negative, int ind,
-char buffer[],
-	int flags, int width, int precision, int size);
-
-/****************** UTILS ******************/
+int write_unsgnd(int is_negative, int ind, 
+char buffer[],int flags, 
+int width, int precision, int size);
+long int convert_size_number(long int num, int size);
 int is_printable(char);
 int append_hexa_code(char, char[], int);
 int is_digit(char);
 
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
->>>>>>> 5ee402587d56defecf7e5500db6d26a0fdfe9ad6
 
-#endif 
+#endif  
