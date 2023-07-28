@@ -1,5 +1,8 @@
-#include "ma
- * @i: List of arguments to be printed.
+#include "main.h"
+/**
+ * get_width - Calculate print width
+ * @format: Formatted string
+ * @i: List of arguments to print
  * @list: list of arguments.
  *
  * Return: width.
