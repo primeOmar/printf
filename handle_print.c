@@ -33,7 +33,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],int flag
 			unknow_len += write(1, " ", 1);
 		else if (width)
 		{
-			(*ind)--
+			(*ind)--;
 			while (fmt[*ind] != ' ' && fmt[*ind] != '%')
 				(*ind)--;
 			return (1);

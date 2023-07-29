@@ -1,8 +1,9 @@
 #include "main.h"
+
 /**
  * print_pointer - Prints the value of a pointer
- * @types: Listof arguments
  * @buffer: Buffer array
+ * @types: List a of arg
  * @width: get width
  * @flags:  Calculates active flags
  * @precision: Precision specification
@@ -47,14 +48,16 @@ int print_pointer(va_list types, char buffer[],
 
 	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 	return (write_pointer(buffer, ind, length,
-		width, flags, padd, extra_c, padd_star));
+		width, flags, padd, extra_c, padd_start));
+}
+
 /**
  * print_non_printable - Prints ascii codes in hexa of non printable chars
- * @types: Lista of arguments
  * @buffer: Buffer array to handle print
+ * @types: Lista of arguments
  * @flags:  Calculates active flags
- * @width: get width
  * @precision: Precision specification
+ * @width: get width
  * @size: Size specifier
  * Return: Number of chars printed
  */
@@ -86,14 +89,15 @@ int print_non_printable(va_list types, char buffer[],
 
 	return (write(1, buffer, i + offset));
 }
+
 /**
  * print_reverse - Prints reverse string.
  * @types: Lista of arguments
- * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
+ * @buffer: Buffer array to handle print
  * @width: get width
- * @precision: Precision specification
  * @size: Size specifier
+ * @precision: Precision specification
  * Return: Numbers of chars printed
  */
 
@@ -131,17 +135,17 @@ int print_reverse(va_list types, char buffer[],
 /**
  * print_rot13string - Print a string in rot13.
  * @types: Lista of arguments
- * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
+ * @buffer: Buffer array to handle print
  * @width: get width
- * @precision: Precision specification
  * @size: Size specifier
+ * @precision: Precision specification
  * Return: Numbers of chars printed
  */
 int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	char x;
+	char b;
 	char *str;
 	unsigned int i, j;
 	int count = 0;
@@ -163,16 +167,16 @@ int print_rot13string(va_list types, char buffer[],
 		{
 			if (in[j] == str[i])
 			{
-				x = out[j];
-				write(1, &x, 1);
+				b = out[j];
+				write(1, &b, 1);
 				count++;
 				break;
 			}
 		}
 		if (!in[j])
 		{
-			x = str[i];
-			write(1, &x, 1);
+			b = str[i];
+			write(1, &b, 1);
 			count++;
 		}
 	}
